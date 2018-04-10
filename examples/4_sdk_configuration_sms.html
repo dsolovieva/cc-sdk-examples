@@ -5,31 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Widgets Test Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type='text/javascript'>
       window.__carcode = {
-          skipButton: true, /*doesn't attach default floating button to page*/
-          sdkWidget: 'sms',
-          appendWidgetTo: 'collapseExample',
-          manualControl: false,
-          skipHeader: true,
-          skipSdkButtons: false,
-          skipMobileApp: true,
-          disableGoogleAnalytics: true,
-          disableEdwAnalytics: true,
-          disableGtmAnalytics: true,
-          alwaysOpenForm: true,
-          cannedMessagesType: 'bubble',
-          optOutText: 'Dont\'t worry - you can opt-out by texting STOP',
-          leadTags: 'helloCustom,helloCustom2',
-          themeConfiguration: {
-            formBoxShadow: 'none', /* applied to widget outline shadow */
-          }
+        /* Do not attach default floating button to page */
+        skipButton: true,
+        /* Skip widget menu and open directly SMS form by clicking SDK button */
+        sdkWidget: 'sms',
+        /* Do not try to open sms messenger on mobile phones */
+        skipMobileApp: true,
+        /* Disable all analytics */
+        disableGoogleAnalytics: true,
+        disableEdwAnalytics: true,
+        disableGtmAnalytics: true,
+        /* Open form even for mobile experience */
+        alwaysOpenForm: true,
+        /* Use 'bubble' canned messages in SMS form */
+        cannedMessagesType: 'bubble',
+        /* Use custom text for welcome message in SMS form */
+        optOutText: 'You can opt-out by texting STOP',
       };
     </script>
-    <script src="https://dev-dsg11-www.carcodesms.com/widgets/s/1hnfjd.js" defer></script>
+    <script src='https://dev-dsg11-www.carcodesms.com/widgets/s/v5zasx.js' type='text/javascript' async defer ></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -41,34 +41,45 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="card m-2 col p-0">
-          <div class="card-header">
-            Car title
+      <header class="row m-3">
+        <h2 class="col">DEALER</h2>
+        <button class="sms-button btn btn-outline-primary"
+          data-make="Mercedes-Benz"
+          data-model="GLE"
+          data-vin="5YFBURHE0HP727333"
+          data-year="2017"
+          data-status="New">
+          Text Us
+        </button>
+      </header>
+      <main class="main">
+        <h3>Available Inventory</h3>
+        <div class="vehicle">
+          <div class="vehicle__picture">
+            <img src="images/car.jpg" alt="">
           </div>
-          <div class="card-body d-flex align-items-start justify-content-between">            
-            <div class="card-text pl-2 pr-2 d-flex">
-              <img class="card-img-top" style="width: 100px;height: 100px;" src="https://pbs.twimg.com/profile_images/816438276416360448/VYk99HIJ_400x400.jpg" alt="Card image cap">
-              Year: 2017<br>
-              Distance: 125 miles<br>
-              Transmission: Automatic<br>
-            </div>
-            <button
-              class="sms-button btn btn-primary"
-              data-make="make1"
-              data-model="model1"
-              data-vin="11111"
-              data-year="2018"
-              data-status="NEW">
-              Text us
-            </button>
+          <div class="vehicle__info">
+            <h3><a href="#">Audi A6</a></h3>
+            <ul class="vehicle__params">
+              <li class="vehicle__params-item">VIN #: <span>5YFBURHE0HP727111</span></li>
+              <li class="vehicle__params-item">Stock #: <span>27811</span></li>
+              <li class="vehicle__params-item">MSRP: <span>$20,625</span></li>
+            </ul>
           </div>
         </div>
-      </div>
-      <div class="row">
-          <div class="col p-2" id="collapseExample">
+        <div class="vehicle">
+          <div class="vehicle__picture">
+            <img src="images/car.jpg" alt="">
           </div>
-      </div>
-    </div>
+          <div class="vehicle__info">
+            <h3><a href="#">BMW X6</a></h3>
+            <ul class="vehicle__params">
+              <li class="vehicle__params-item">VIN #: <span>5YFBURHE0HP727222</span></li>
+              <li class="vehicle__params-item">Stock #: <span>27822</span></li>
+              <li class="vehicle__params-item">MSRP: <span>$18,750</span></li>
+            </ul>
+          </div>
+        </div>
+    </main>
   </body>
 </html>

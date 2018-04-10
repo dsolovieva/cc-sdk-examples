@@ -5,16 +5,22 @@ const EXAMPLES = [
     codeStr: `
     <head>
       <!-- Install default CarCode script in the head tag section -->
-      <script> src="https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js" defer></script>;
+      <script src='https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js' type='text/javascript' async defer></script>
     </head>
     `,
   },{
     title: 'SDK buttons',
     url: '2_sdk_buttons.html',
-    codeStr: ` 
+    codeStr: `
     <head>
-      <!-- Install default CarCode script in the head tag section -->
-      <script> src="https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js" defer></script>;
+      <!-- Do not attach default floating button to page -->
+      <script>
+        window.__carcode = {
+          skipButton: true
+        }
+      </script>
+      <!-- Install default CarCode script -->
+      <script src='https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js' type='text/javascript' async defer></script>
     </head>
     <body>
       ...
@@ -22,8 +28,18 @@ const EXAMPLES = [
       Replace all items in [brackets] with query that pulls or passes those items into the code. -->
       <button class="sms-button"
         data-make="[MAKE]" data-model="[MODEL]" data-vin="[VIN_CODE]"
-        data-year="[YEAR]" data-status="[NEW_OR_USED]">
+        data-year="[YEAR]" data-status="[NEW_OR_USED]" data-widget="livechat">
+        Chat
+      </button>
+      <button class="sms-button"
+        data-make="[MAKE]" data-model="[MODEL]" data-vin="[VIN_CODE]"
+        data-year="[YEAR]" data-status="[NEW_OR_USED]" data-widget="sms">
         Text us
+      </button>
+      <button class="sms-button"
+        data-make="[MAKE]" data-model="[MODEL]" data-vin="[VIN_CODE]"
+        data-year="[YEAR]" data-status="[NEW_OR_USED]" data-widget="facebook">
+        Facebook
       </button>
       ...
     </body>
@@ -33,27 +49,75 @@ const EXAMPLES = [
     url: '3_theme_configuration.html',
     codeStr: `
     <head>
-      <!-- Install default CarCode script in the head tag section -->
-      <script> src="https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js" defer></script>;
+      <!-- Load custom font -->
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+      <!-- Configure custom theme -->
+      <script>
+        window.__carcode = {
+          themeConfiguration: {
+            formBackgroundColor: '#f3f3f3',
+            formLightBackgroundColor: '#ffffff',
+            formLightColor: '#555',
+            formTextColor: '#999999',
+            separatorColor: '#e8ede8',
+            backgroundButtonColor: '#007EE5',
+            buttonColor: '#ffffff',
+            fontSize: '16px',
+            fontFamily: '\\'Roboto\\', \\'Open Sans\\', \\'Arial\\', \\'Helvetica\\', \\'sans-serif\\'',
+            formButtonBackgroundColor: '#007EE5',
+            dotColor: '#f3f3f3',
+            formBoxShadow: 'rgba(85,85,85,0.5)',
+            chatReplyMessageBackground: '#fff',
+            chatMessageBackground: '#e3eaec',
+            scrollBarColor: '#c1c1c1',
+            scrollBarBackground: '#e9e9e9',
+            inventoryPrimaryLightColor: '#999',
+            inventoryPrimaryDarkColor: '#555',
+          },
+        };
+      </script>
+      <!-- Install default CarCode script -->
+      <script src='https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js' type='text/javascript' async defer></script>
     </head>
     `,
   },{
     title: 'SMS Form',
     url: '4_sdk_configuration_sms.html',
     codeStr: `
-    <head>
-      <!-- Install default CarCode script in the head tag section -->
-      <script> src="https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js" defer></script>;
-    </head>
+    <script type='text/javascript'>
+      window.__carcode = {
+        /* Do not attach default floating button to page */
+        skipButton: true,
+        /* Skip widget menu and open directly SMS form by clicking SDK button */
+        sdkWidget: 'sms',
+        /* Do not try to open sms messenger on mobile phones */
+        skipMobileApp: true,
+        /* Disable all analytics */
+        disableGoogleAnalytics: true,
+        disableEdwAnalytics: true,
+        disableGtmAnalytics: true,
+        /* Open form even for mobile experience */
+        alwaysOpenForm: true,
+        /* Use 'bubble' canned messages in SMS form */
+        cannedMessagesType: 'bubble',
+        /* Use custom text for welcome message in SMS form */
+        optOutText: 'You can opt-out by texting STOP',
+      };
+    </script>
+    <!-- Install default CarCode script in the head tag section -->
+    <script src='https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js' type='text/javascript' async defer></script>
     `,
   },{
-    title: 'Chat Form',
-    url: '5_sdk_configuration_chat.html',
+    title: 'API usage',
+    url: '5_sdk_api.html',
     codeStr: `
-    <head>
-      <!-- Install default CarCode script in the head tag section -->
-      <script> src="https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js" defer></script>;
-    </head>
+    <script>
+      window.__carcode = {
+       
+      };
+    </script>
+    <!-- Install default CarCode script in the head tag section -->
+    <script src='https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js' type='text/javascript' async defer></script>
     `,
   }
 ];
