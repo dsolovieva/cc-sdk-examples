@@ -13,6 +13,35 @@ const EXAMPLES = [
     url: '2_sdk_buttons.html',
     codeStr: `
     <head>
+      <script>
+        window.__carcode = {
+          /* Do not attach default floating button to page */
+          skipButton: true
+        }
+      </script>
+      <!-- Install default CarCode script -->
+      <script src='https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js' type='text/javascript' async defer></script>
+    </head>
+    <body>
+      <!-- ... -->
+      <!-- Add button(s) to VDPs (vehicle details page) or SRPs (vehicle search results pages) -->
+      <button class="sms-button" data-widget="livechat">
+        Chat
+      </button>
+      <button class="sms-button" data-widget="sms">
+        Text us
+      </button>
+      <button class="sms-button" data-widget="facebook">
+        Facebook
+      </button>
+      <!-- ... -->
+    </body>
+    `,
+  },{
+    title: 'SDK buttons in SPA',
+    url: '2_spa_sdk_buttons.html',
+    codeStr: `
+    <head>
       <!-- Do not attach default floating button to page -->
       <script>
         window.__carcode = {
@@ -21,27 +50,11 @@ const EXAMPLES = [
       </script>
       <!-- Install default CarCode script -->
       <script src='https://dev-dsg11-www.carcodesms.com/widgets/s/[WIDGET_ID].js' type='text/javascript' async defer></script>
+      <script src='spa_sdk_buttons.js' type='text/javascript' async defer></script>
     </head>
     <body>
-      ...
-      <!-- Add button(s) to VDPs (vehicle details page) / SRPs (vehicle listings/search results pages)
-      Replace all items in [brackets] with query that pulls or passes those items into the code. -->
-      <button class="sms-button"
-        data-make="[MAKE]" data-model="[MODEL]" data-vin="[VIN_CODE]"
-        data-year="[YEAR]" data-status="[NEW_OR_USED]" data-widget="livechat">
-        Chat
-      </button>
-      <button class="sms-button"
-        data-make="[MAKE]" data-model="[MODEL]" data-vin="[VIN_CODE]"
-        data-year="[YEAR]" data-status="[NEW_OR_USED]" data-widget="sms">
-        Text us
-      </button>
-      <button class="sms-button"
-        data-make="[MAKE]" data-model="[MODEL]" data-vin="[VIN_CODE]"
-        data-year="[YEAR]" data-status="[NEW_OR_USED]" data-widget="facebook">
-        Facebook
-      </button>
-      ...
+     <div id="vehicles">
+     </div>
     </body>
     `,
   },{
