@@ -7,6 +7,10 @@
     let isSmsWidgetAttached;
     let isChatWidgetAttached;
 
+    widget.openSmsSalesForm();
+    widget.attachSmsWidget();
+    isSmsWidgetAttached = true;
+
     const closeSmsWidget = () => {
       widget.detachSmsWidget();
 

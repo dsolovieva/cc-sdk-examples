@@ -5,7 +5,7 @@ const createVehicleCard = () => {
   vehicle.classList.add('vehicle');
   vehicle.innerHTML = `
           <div class="vehicle__picture">
-            <img src="images/car.jpg" alt="">
+            <img src="../images/car.jpg" alt="">
           </div>
           <div class="vehicle__info">
             <h3><a href="#">BMW X6</a></h3>
@@ -26,21 +26,16 @@ const createVehicleCard = () => {
   `;
 
   return vehicle;
-}
-// const createCarcodeButton = () => {
-//   const button = document.createElement('button');
+};
 
-//   button.innerHTML = 'Open Widget';
-
-//   button.classList.add('sms-button');
-
-//   button.classList.add('btn');
-//   button.classList.add('btn-primary');
-//   button.classList.add('m-2');
-
-//   return button;
-// }
+const loadPage = () => {
+  for (let i = 0; i < 5; i++) {
+    vehicles.appendChild(createVehicleCard());
+  }
+};
 
 document.getElementById('addMore').addEventListener('click', () => {
-  vehicles.appendChild(createVehicleCard());
+  loadPage();  
 });
+
+loadPage();
