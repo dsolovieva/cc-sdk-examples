@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Widgets Test Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type='text/javascript'>
       window.__carcode = {
-          skipButton: true, /*doesn't attach default floating button to page*/
+          skipButton: true,
           appendWidgetTo: 'widgetContainer',
           manualControl: true,
           skipHeader: true,
@@ -24,7 +25,7 @@
           optOutText: 'Dont\'t worry - you can opt-out by texting STOP',
           leadTags: 'helloCustom,helloCustom2',
           themeConfiguration: {
-            formBoxShadow: 'none', /* applied to widget outline shadow */
+            formBoxShadow: 'rgba(85,85,85,0)',
           }
       };
     </script>
@@ -39,41 +40,53 @@
       ga('send', 'pageview');
     </script>
     <style>
+      ul {
+        list-style: none;
+      }
+      .ion-flame {
+        color: #ff6633 ;
+      }
       #widgetContainer {
-        height: 450px;
+        height: 480px;
+      }
+      #msrp {
+        width: 450px;  
+      }
+      @media (min-width: var(--breakpoint-sm)) {
+        #msrp {
+          flex: 0 0 450px;
+        }
       }
     </style>
   </head>
   <body>
-      <div class="container-fluid mt-2">
+      <div class="container mt-3">
         <h3>Audi A6</h3>
-        <main class="row align-items-start">
-          <div class="vehicle col-sm-5">
-            <div class="vehicle__picture">
-              <img src="images/car.jpg" alt="" style="width:100%;">
-            </div>
-            <div class="vehicle__info">
-              <ul class="vehicle__params">
-                <li class="vehicle__params-item">VIN #: <span>5YFBURHE0HP727111</span></li>
-                <li class="vehicle__params-item">Stock #: <span>27811</span></li>
-                <li class="vehicle__params-item">MSRP: <span>$20,625</span></li>
-              </ul>
-            </div>
+        <main class="d-flex flex-column flex-md-row align-items-start">
+          <div class="col-md">
+            <img src="../images/car.jpg" alt="" style="width:100%;">
+            <ul>
+              <li>VIN #: <span>5YFBURHE0HP727111</span></li>
+              <li>Stock #: <span>27811</span></li>
+              <li>MSRP: <span>$20,625</span></li>
+            </ul>
           </div>
-          <div id="msrp" class="card col-sm m-2 mt-0">
+          <div id="msrp" class="card m-2 mt-0">
             <div class="card-body">
               <div class="d-flex justify-content-between">
                   <span class="text-muted">MSRP</span>
                   <h5 class="card-title">$20,625<span class="align-text-bottom">*</span></h5>
               </div>
-              <p class="card-text">This car is likely to sell any day now</p>
+              <p class="card-text"><i class="icon ion-flame"></i> This car is likely to sell any day now</p>
               <a class="card-link" data-toggle="collapse" href="#contactUs" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Contact Us
               </a>
               <div class="collapse" id="contactUs">
-                <a id="sms" class="card-link" href="#">Text Us</a>
-                <a id="chat" class="card-link" href="#">Chat</a>
-                <a id="facebook" class="card-link" href="#">Facebook</a>
+                <ul class="d-flex p-0 my-3 justify-content-around">
+                  <a id="sms" class="card-link" href="#">Text Us</a>
+                  <a id="chat" class="card-link" href="#">Chat</a>
+                  <a id="facebook" class="card-link" href="#">Facebook</a>
+                </ul>
                 <div id="widgetContainer">
                 </div>
               </div>

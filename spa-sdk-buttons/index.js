@@ -1,40 +1,70 @@
-const vehicles = document.getElementById('vehicles');
+const VEHICLES = [
+  {
+    title: 'Audi A6',
+    vin: '5YFBURHE0HP727111',
+    stock: '27811',
+    msrp: '$20,625'
+  },{
+    title: 'BMW X6',
+    vin: '5YFBURHE0HP727222',
+    stock: '27822',
+    msrp: '$18,750'
+  },{
+    title: 'Mercedes-Benz GLE Coupe',
+    vin: '5YFBURHE0HP727333',
+    stock: '27833',
+    msrp: '$23,254'
+  }
+];
+const vehiclesList = document.getElementById('vehicles');
 
-const createVehicleCard = () => {
-  const vehicle = document.createElement('div');
-  vehicle.classList.add('vehicle');
-  vehicle.innerHTML = `
-          <div class="vehicle__picture">
-            <img src="../images/car.jpg" alt="">
-          </div>
-          <div class="vehicle__info">
-            <h3><a href="#">BMW X6</a></h3>
-            <ul class="vehicle__params">
-              <li class="vehicle__params-item">VIN #: <span>5YFBURHE0HP727222</span></li>
-              <li class="vehicle__params-item">Stock #: <span>27822</span></li>
-              <li class="vehicle__params-item">MSRP: <span>$18,750</span></li>
-            </ul>
-            <button class="sms-button btn btn-outline-primary m-2"
-              data-make="Mercedes-Benz"
-              data-model="GLE"
-              data-vin="5YFBURHE0HP727333"
-              data-year="2017"
-              data-status="New">
-              Text Us
-            </button>
-          </div>
+const createSDKButton = () => {
+  const button = document.createElement('button');
+
+  button.innerHTML = 'Contact Us';
+
+  button.classList.add('sms-button');
+
+  button.classList.add('btn');
+  button.classList.add('btn-outline-primary');
+
+  return button;
+};
+
+const createVehicleCard = (vehicle) => {
+  const card = document.createElement('div');
+  const sdkButton = createSDKButton();
+
+  card.classList.add('card');
+  card.classList.add('mb-2');
+
+  card.innerHTML = `
+    <div class="card-header">
+      ${vehicle.title}
+    </div>
+    <div class="card-body d-flex flex-column flex-sm-row align-items-center justify-content-between">
+      <div class="d-flex flex-column flex-sm-row align-items-center">
+        <img src="../images/car.jpg" alt="">
+        <ul class="card-list ml-sm-0">
+          <li>VIN #: <span>${vehicle.vin}</span></li>
+          <li>Stock #: <span>${vehicle.stock}</span></li>
+          <li>MSRP: <span>${vehicle.msrp}</span></li>
+        </ul>
+      </div>
+      ${sdkButton.outerHTML}
+    </div>
   `;
 
-  return vehicle;
+  return card;
 };
 
 const loadPage = () => {
-  for (let i = 0; i < 5; i++) {
-    vehicles.appendChild(createVehicleCard());
-  }
+  VEHICLES.forEach(
+    (vehicle) => vehiclesList.appendChild(createVehicleCard(vehicle))
+  );
 };
 
-document.getElementById('addMore').addEventListener('click', () => {
+document.getElementById('load').addEventListener('click', () => {
   loadPage();  
 });
 

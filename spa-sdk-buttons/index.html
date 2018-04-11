@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Widgets Test Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="main.css">
+    <style>
+      .card-body img {
+        width: 100px;
+      }
+      .card-list {
+        list-style: none;
+      }
+    </style>
     <script>
       window.__carcode = {
         skipButton: true
@@ -23,11 +30,11 @@
     </script>
   </head>
   <body>
-      <main class="main">
-        <h3 class="mb-5">Available Inventory</h3>
-        <div id="vehicles">
-        </div>
-        <button class="btn btn-outline-primary" id="addMore">Load more</button>
-      </main>
+    <main class="container my-3">
+      <h3>Available Inventory</h3>
+      <div id="vehicles">
+      </div>
+      <button class="btn btn-outline-primary" id="load">Load more</button>
+    </main>
   </body>
 </html>

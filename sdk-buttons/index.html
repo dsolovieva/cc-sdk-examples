@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Widgets Test Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="main.css">
+    <style>
+      .card-body img {
+        width: 100px;
+      }
+      .card-list {
+        list-style: none;
+      }
+    </style>
     <script>
       window.__carcode = {
         skipButton: true
@@ -22,6 +29,7 @@
     </script>
   </head>
   <body>
+    <div class="container">
       <header class="row m-3">
         <h2 class="col mt-2">DEALER</h2>
         <button class="sms-button btn btn-outline-primary m-2" data-widget="livechat">
@@ -34,34 +42,57 @@
           Facebook
         </button>
       </header>
-      <main class="main">
-        <h3 class="mb-5">Available Inventory</h3>
-        <div class="vehicle">
-          <div class="vehicle__picture">
-            <img src="../images/car.jpg" alt="">
+      <main>
+        <h2>Available Inventory</h2>
+        <div class="card mb-2">
+          <div class="card-header">
+            Audi A6
           </div>
-          <div class="vehicle__info">
-            <h3><a href="#">Audi A6</a></h3>
-            <ul class="vehicle__params">
-              <li class="vehicle__params-item">VIN #: <span>5YFBURHE0HP727111</span></li>
-              <li class="vehicle__params-item">Stock #: <span>27811</span></li>
-              <li class="vehicle__params-item">MSRP: <span>$20,625</span></li>
-            </ul>
+          <div class="card-body d-flex flex-column flex-sm-row align-items-center justify-content-between">
+            <div class="d-flex flex-column flex-sm-row align-items-center">
+              <img src="../images/car.jpg" alt="">
+              <ul class="card-list ml-sm-0">
+                <li>VIN #: <span>5YFBURHE0HP727111</span></li>
+                <li>Stock #: <span>27811</span></li>
+                <li>MSRP: <span>$20,625</span></li>
+              </ul>
+            </div>
+            <a href="#" class="btn btn-primary">Details</a>
           </div>
         </div>
-        <div class="vehicle">
-          <div class="vehicle__picture">
-            <img src="../images/car.jpg" alt="">
+        <div class="card mb-2">
+          <div class="card-header">
+            BMW X6
           </div>
-          <div class="vehicle__info">
-            <h3><a href="#">BMW X6</a></h3>
-            <ul class="vehicle__params">
-              <li class="vehicle__params-item">VIN #: <span>5YFBURHE0HP727222</span></li>
-              <li class="vehicle__params-item">Stock #: <span>27822</span></li>
-              <li class="vehicle__params-item">MSRP: <span>$18,750</span></li>
-            </ul>
+          <div class="card-body d-flex flex-column flex-sm-row align-items-center justify-content-between">
+            <div class="d-flex flex-column flex-sm-row  align-items-center">
+              <img src="../images/car.jpg" alt="">
+              <ul class="card-list ml-sm-0">
+                <li>VIN #: <span>5YFBURHE0HP727222</span></li>
+                <li>Stock #: <span>27822</span></li>
+                <li>MSRP: <span>$18,750</span></li>
+              </ul>
+            </div>
+            <a href="#" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+        <div class="card mb-2">
+          <div class="card-header">
+            Mercedes-Benz GLE Coupe
+          </div>
+          <div class="card-body d-flex flex-column flex-sm-row align-items-center justify-content-between">
+            <div class="d-flex flex-column flex-sm-row  align-items-center">
+              <img src="../images/car.jpg" alt="">
+              <ul class="card-list ml-sm-0">
+                <li>VIN #: <span>5YFBURHE0HP727333</span></li>
+                <li>Stock #: <span>27833</span></li>
+                <li>MSRP: <span>$23,254</span></li>
+              </ul>
+            </div>
+            <a href="#" class="btn btn-primary">Details</a>
           </div>
         </div>
       </main>
+    </div>
   </body>
 </html>
