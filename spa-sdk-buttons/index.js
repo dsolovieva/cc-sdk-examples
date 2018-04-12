@@ -42,7 +42,7 @@ const createVehicleCard = (vehicle) => {
     <div class="card-header">
       ${vehicle.title}
     </div>
-    <div class="card-body d-flex flex-column flex-sm-row align-items-center justify-content-between">
+    <div class="card-body d-flex flex-column flex-sm-row align-items-center justify-content-between p-2">
       <div class="d-flex flex-column flex-sm-row align-items-center">
         <img src="../images/car.jpg" alt="">
         <ul class="card-list ml-sm-0">
