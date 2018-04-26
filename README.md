@@ -7,6 +7,7 @@ https://dsolovieva.github.io/cc-sdk-examples/getting-started
 
 Configure your widget using settings object:  
 * use sdk buttons https://dsolovieva.github.io/cc-sdk-examples/sdk-buttons  
+* customizing class name for sdk buttons https://dsolovieva.github.io/cc-sdk-examples/sdk-buttons-classname/
 * add sdk buttons to your page dynamically https://dsolovieva.github.io/cc-sdk-examples/spa-sdk-buttons  
 * skip widget menu and open sms form directly https://dsolovieva.github.io/cc-sdk-examples/sms-form  
 * customize theme https://dsolovieva.github.io/cc-sdk-examples/theme-config  
